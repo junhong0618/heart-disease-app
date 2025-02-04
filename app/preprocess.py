@@ -5,6 +5,7 @@ import os
 
 # Use absolute path
 DATA_PATH = os.path.abspath("data/heart_disease.csv")
+DATA_PATH = os.path.abspath("data/heart_disease.csv")
 
 def preprocess_data():
     # Load dataset
@@ -19,9 +20,13 @@ def preprocess_data():
     df_drop['Gender'] = label_encoder.fit_transform(df_drop['Gender'])
     df_drop['prevalentStroke'] = label_encoder.fit_transform(df_drop['prevalentStroke'])
 
+
+
     # Fill missing values with median
     for col in ["totChol", "BMI", "glucose", "cigsPerDay", "BPMeds"]:
         df_drop[col].fillna(df_drop[col].median(), inplace=True)
+
+
 
     # Scale numerical features
     scaler = StandardScaler()
