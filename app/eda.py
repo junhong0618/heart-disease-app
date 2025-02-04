@@ -4,8 +4,9 @@ import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-import os
+import os, io
 import io
+
 
 # Load dataset
 def load_data():
@@ -17,9 +18,11 @@ df = load_data()
 # Streamlit app layout
 st.title("💓 Heart Disease EDA Dashboard")
 
+
 # Manually define columns
 numeric_columns = ['age', 'cigsPerDay', 'totChol', 'sysBP','diaBP','BMI','heartRate','glucose']
 categorical_columns = ['Gender', 'education', 'currentSmoker', 'BPMeds','prevalentStroke','prevalentHyp','diabetes','Heart_ stroke']
+
 
 # Sidebar Filters
 st.sidebar.header("Filters")
